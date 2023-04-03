@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
-  def new
-  end
-    
+  def new; end
+
   def create
     @booking = Booking.new(booking_params)
     if @booking.save!
@@ -16,4 +15,3 @@ class BookingsController < ApplicationController
       .permit(:start_time, :end_time, :package_id)
   end
 end
-
