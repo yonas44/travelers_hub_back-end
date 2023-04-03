@@ -5,11 +5,12 @@ class CreatePackages < ActiveRecord::Migration[7.0]
       t.string :title
       t.string :description
       t.string :destination
+      t.string :photo, array: true
       t.boolean :flight
       t.decimal :price
       t.boolean :bus
       t.string :accomodation
-      t.integer :promotion
+      t.integer :promotion, default: 0
 
       t.timestamps
     end
