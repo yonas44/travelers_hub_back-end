@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
-  def new; end
+    before_action :authenticate_user!
+
+    def new; end
 
   def create
     @booking = Booking.new(booking_params)
@@ -13,5 +15,6 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking)
       .permit(:start_time, :end_time, :package_id)
+      .with_defaults(user_id: current_user.id)
   end
 end
