@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 
-    def new; end
+  def new; end
 
   def create
     @booking = Booking.new(booking_params)
