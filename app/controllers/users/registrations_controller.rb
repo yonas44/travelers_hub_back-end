@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
-  private
+  protected
 
   def respond_with(resource, _opts = {})
     register_success && return if resource.persisted?
