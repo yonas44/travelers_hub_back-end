@@ -16,7 +16,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def log_in_success
-    render json: { message: 'You are logged in.' }, status: :ok
+    render json: { message: 'You are logged in.', resource: }, status: :ok
   end
 
   def log_in_failure
