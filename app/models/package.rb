@@ -4,5 +4,4 @@ class Package < ApplicationRecord
 
   validates :title, :description, :destination, :photo, :accomodation, presence: true
   validates :price, :promotion, length: { minimum: 0 }
-  
 end
