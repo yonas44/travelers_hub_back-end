@@ -3,7 +3,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :packages, only: [:index, :show]
   get '/bookings', to: 'bookings#index'
   delete '/booking', to: 'bookings#destroy'
+  
   root "test#index"
 end
