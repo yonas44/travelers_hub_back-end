@@ -1,6 +1,6 @@
 class PackagesController < ApplicationController
 
-   before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   respond_to :json
   
