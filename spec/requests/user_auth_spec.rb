@@ -43,7 +43,7 @@ RSpec.describe 'User Authentication', type: :request do
     before :each do
       User.destroy_all
     end
-    
+
     context 'when user is not registered' do
       it 'returns a 200 status code' do
         post '/users', params: { user: { username: 'johndoe', password: 'password' } }, as: :json
