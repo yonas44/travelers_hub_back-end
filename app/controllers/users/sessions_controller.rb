@@ -18,7 +18,7 @@ class Users::SessionsController < Devise::SessionsController
   def log_in_success
     # set Access-Control-Expose-Headers to allow client to access the headers
     response.headers['Access-Control-Expose-Headers'] = '*'
-    render json: { message: 'You are logged in successfully' }, status: :ok
+    render json: { message: 'You are logged in successfully', resource: }, status: :ok
   end
 
   def log_in_failure

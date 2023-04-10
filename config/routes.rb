@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :packages, only: [:index, :show]
+  get '/bookings', to: 'bookings#index'
+  delete '/booking', to: 'bookings#destroy'
+  
   root "test#index"
 end
