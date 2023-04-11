@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :registerable,
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtDenylist
+
+  validates :username, presence: true, uniqueness: true
 end

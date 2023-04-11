@@ -16,11 +16,13 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def log_in_success
-    render json: { message: 'You are logged in.', resource: }, status: :ok
+    # set Access-Control-Expose-Headers to allow client to access the headers
+    response.headers['Access-Control-Expose-Headers'] = '*'
+    render json: { message: 'You are logged in successfully', resource: }, status: :ok
   end
 
   def log_in_failure
-    render json: { message: 'Invalid credentials.' }, status: :unauthorized
+    render json: { errors: resource.errors.full_messages }, status: :unprocessable_entity
   end
 
   def log_out_success
@@ -28,6 +30,6 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def log_out_failure
-    render json: { message: 'Something wrong happened.' }, status: :unauthorized
+    render json: { errors: resource.errors.full_messages }, status: :unprocessable_entity
   end
 end
