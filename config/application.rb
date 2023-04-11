@@ -11,15 +11,15 @@ module TravelersHubBackEnd
     # Initialize configuration defaults for originally generated Rails version.
     
     # Configuration for the application, engines, and railties goes here.
-    config.load_defaults 7.0
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', 
-          headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options, :head]
-      end
-    end
+    # config.load_defaults 7.0
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', 
+    #       headers: :any,
+    #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    #   end
+    # end
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
