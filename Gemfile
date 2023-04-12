@@ -10,8 +10,6 @@ gem 'devise'
 
 gem 'cancancan'
 
-gem 'rubocop', '>= 1.0', '< 2.0'
-
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
@@ -59,4 +57,13 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'capybara'
+  gem 'rubocop', '>= 1.0', '< 2.0'
+end
+
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
