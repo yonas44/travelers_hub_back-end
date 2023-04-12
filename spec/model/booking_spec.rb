@@ -33,17 +33,16 @@ RSpec.describe Booking, type: :model do
   end
 
   describe 'validations' do
-
     it 'is not valid without an end date less than start_time' do
       subject.end_time = '09/04/2023'
       expect(subject).to_not be_valid
     end
-  
+
     it 'is not valid with a start date less than present day' do
       subject.start_time = '08/04/2023'
       expect(subject).to_not be_valid
     end
-  
+
     it 'is not valid with a end date  less than present day' do
       subject.end_time = '10/04/2023'
       expect(subject).to_not be_valid
@@ -52,11 +51,10 @@ RSpec.describe Booking, type: :model do
       subject.user = nil
       expect(subject).to_not be_valid
     end
-  
+
     it 'is not valid without a package' do
       subject.package = nil
       expect(subject).to_not be_valid
     end
   end
-
 end
