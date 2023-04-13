@@ -33,6 +33,8 @@ class PackagesController < ApplicationController
     end
   end
 
+  private
+
   def package_params
     params.require(:package)
       .permit(:title, :destination, :description, :flight, :price, :bus, :accomodation, :promotion, photo: [])

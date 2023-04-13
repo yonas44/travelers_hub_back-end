@@ -53,6 +53,7 @@ paths:
                 properties:
                   message:
                     type: string
+                    example: booking created
                 required:
                 - message
         '422':
@@ -82,12 +83,11 @@ paths:
               - package_id
               - start_time
               - end_time
-  "/booking":
+  "/bookings/:id":
     delete:
       summary: deletes a booking
       tags:
       - Bookings
-      parameters: []
       responses:
         '200':
           description: created
@@ -111,16 +111,6 @@ paths:
                     type: string
                 required:
                 - error
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                id:
-                  type: integer
-              required:
-              - id
   "/packages":
     get:
       summary: Retrieves all packages
@@ -241,12 +231,11 @@ paths:
               - promotion
               - accomodation
               - user_id
-  "/package":
+  "/packages/:id":
     delete:
       summary: deletes a package
       tags:
       - Packages
-      parameters: []
       responses:
         '200':
           description: created
@@ -272,16 +261,6 @@ paths:
                     example: Sorry, coulnd't remove package
                 required:
                 - error
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                id:
-                  type: integer
-              required:
-              - id
   "/users":
     post:
       summary: registers a new user

@@ -4,15 +4,9 @@ class BookingsController < ApplicationController
 
   def index
     bookings = Booking.includes(:package).all
-    if bookings.empty?
-      render json: { message: 'There are no booking created currently.' } if bookings.empty?
-    else
-      render json: bookings.as_json(include: :package)
-    end
 
+    render json: bookings.as_json(include: :package)
   end
-
-  def new; end
 
   def create
     booking = Booking.new(booking_params)

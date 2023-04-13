@@ -43,7 +43,7 @@ describe 'Bookings API' do
       response '200', 'created' do
         schema type: :object,
                properties: {
-                 message: { type: :string }
+                 message: { type: :string, example: 'booking created' }
                },
                required: ['message']
 
@@ -65,17 +65,9 @@ end
 
 describe 'Bookings API' do
   delete 'deletes a booking' do
-    path '/booking' do
+    path '/bookings/:id' do
       tags 'Bookings'
-      consumes 'application/json'
       produces 'application/json'
-      parameter name: :booking, in: :body, schema: {
-        type: :object,
-        properties: {
-          id: { type: :integer }
-        },
-        required: ['id']
-      }
       response '200', 'created' do
         schema type: :object,
                properties: {

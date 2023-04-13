@@ -68,17 +68,9 @@ describe 'Packages API' do
 end
 describe 'Packages API' do
   delete 'deletes a package' do
-    path '/package' do
+    path '/packages/:id' do
       tags 'Packages'
-      consumes 'application/json'
       produces 'application/json'
-      parameter name: :package, in: :body, schema: {
-        type: :object,
-        properties: {
-          id: { type: :integer }
-        },
-        required: ['id']
-      }
       response '200', 'created' do
         schema type: :object,
                properties: {
