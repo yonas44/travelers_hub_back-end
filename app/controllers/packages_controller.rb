@@ -5,13 +5,13 @@ class PackagesController < ApplicationController
   respond_to :json
 
   def index
-    @packages = Package.includes(:user)
-    render json: @packages
+    packages = Package.includes(:user)
+    render json: packages
   end
 
   def show
-    @package = Package.includes(:user).find(params[:id])
-    render json: @package
+    package = Package.includes(:user).find(params[:id])
+    render json: package
   end
 
   def create
@@ -29,7 +29,7 @@ class PackagesController < ApplicationController
     if package.destroy
       render json: { message: 'Package removed sucessfully' }, status: :ok
     else
-      render json: { message: "Sorry, coulnd't remove package" }, status: :unprocessable_entity
+      render json: { message: "Sorry, couldn't remove package" }, status: :unprocessable_entity
     end
   end
 
