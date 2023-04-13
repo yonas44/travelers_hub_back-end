@@ -1,7 +1,7 @@
 class PackagesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  load_and_authorize_resource except: [:index, :show]
-  
+  before_action :authenticate_user!, except: %i[index show]
+  load_and_authorize_resource except: %i[index show]
+
   respond_to :json
 
   def index
@@ -24,18 +24,18 @@ class PackagesController < ApplicationController
     end
   end
 
-    def destroy
-      package = Package.find(params[:id])
-      if package.destroy
-        render json: { message: 'Package removed sucessfully' }, status: :ok
-      else
-        render json: { message: "Sorry, coulnd't remove package" }, status: :unprocessable_entity
-      end
+  def destroy
+    package = Package.find(params[:id])
+    if package.destroy
+      render json: { message: 'Package removed sucessfully' }, status: :ok
+    else
+      render json: { message: "Sorry, coulnd't remove package" }, status: :unprocessable_entity
     end
-  
-    def package_params
-      params.require(:package)
-        .permit(:title, :destination, :description, :flight, :price, :bus, :accomodation, :promotion, photo: [])
-        .with_defaults(user_id: current_user.id)
-    end
+  end
+
+  def package_params
+    params.require(:package)
+      .permit(:title, :destination, :description, :flight, :price, :bus, :accomodation, :promotion, photo: [])
+      .with_defaults(user_id: current_user.id)
+  end
 end
