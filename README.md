@@ -20,7 +20,6 @@
 - [🙏 Acknowledgements](#acknowledgments)
 - [📝 License](#license)
 
-
 # 📖 travellers_hub_back-end <a name="about-project"></a>
 
 **travellers_hub_back-end** is a travelling app where the user can register new accounts, login and book a set of different trip packages, users can add packages and delete them too. It is built and connected by using two different repos, including back-end(Rails) and front-end(React/Redux).
@@ -67,38 +66,67 @@ Find the front-end repository [here](https://github.com/yonas44/travelers_hub_fr
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> To get a local copy up and running follow these simple steps.
-
 ### Prerequisites
 
-  - <a href="https://www.ruby-lang.org/en/news/2022/11/24/ruby-3-1-3-released/">Ruby</a>
-  - <a href="https://rubyonrails.org/">Ruby on Rails</a>
-  - <a href="https://www.postgresql.org/">PostgreSQL</a>
-  - any code editor
+- <a href="https://www.ruby-lang.org/en/news/2022/11/24/ruby-3-1-3-released/">Ruby</a>
+- <a href="https://rubyonrails.org/">Ruby on Rails</a>
+- <a href="https://www.postgresql.org/">PostgreSQL</a>
+- any code editor
 
 ### Setup
 
 To setup the project follow the steps:
 
-1. Clone this project using Git Bash: 
-    ``` 
+1.  Clone this project using Git Bash:
+
+    ```
     git clone https://github.com/yonas44/travelers_hub_back-end.git
     ```
-  
-2. Inside the project directory, install the project's dependencies
+
+2.  Inside the project directory, install the project's dependencies
+
     ```
     bundle install
-    ``` 
+    ```
 
-3. Create the app's database
+3.  Create the app's database
+
     ```
     rails db:create
-    ``` 
+    ```
 
-4. Setup the app's database
+4.  Setup the app's database
     ```
     rails db:setup
-    ``` 
+    ```
+5.  Setup the credentials on your local project following:
+
+- Run:
+  ```
+         rake secret
+  ```
+- Open the credentials file from the command line.
+
+```
+ EDITOR=nano rails credentials:edit
+```
+
+And paste in the following, with the key generated from running the rake secret above.
+
+```
+devise:
+  jwt_secret_key: <rake secret key>
+```
+
+ctrl+x, then y, then enter to close and save if you’re using the nano editor.
+
+### Usage
+
+- To use the API documentation for the back-end end points, use this path to see the documentation after starting the back-end server:
+
+```
+http://localhost:3000/api-docs/index.html
+```
 
 ### Available Scripts
 
@@ -107,6 +135,7 @@ In the project directory, you can run:
 - ```
   rails server
   ```
+
   Runs the app local server
 
 - ```
@@ -115,7 +144,6 @@ In the project directory, you can run:
   Launches the test runner.
 
 ## 👥 Author <a name="authors"></a>
-
 
 👤 **Oti Ifeanyi**
 
@@ -141,6 +169,7 @@ In the project directory, you can run:
 - LinkedIn: [adebsa](https://www.linkedin.com/in/adebsa)
 
 ### 👤 Kidist Dinku
+
 - GitHub: [Ney2](https://github.com/Ney2)
 - Twitter: [@GutaKidist](https://twitter.com/GutaKidist)
 - Linkedin: [Kidist Dinku](https://www.linkedin.com/in/kidist-guta/)
@@ -163,9 +192,8 @@ If you like this project give it a star!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- Microverse ❤️ 
+- Microverse ❤️
 - [Murat Korkmaz on Behance](https://www.behance.net/muratk) the author of the [original design](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
-
 
 ## 📝 License <a name="license"></a>
 
