@@ -55,7 +55,9 @@ Find the front-end repository [here](https://github.com/yonas44/travelers_hub_fr
 
 ### Key Features <a name="key-features"></a>
 
-- **Provide a random message through the API endpoint**
+- **User can register new accounts and login**
+- **User can book a set of different trip packages**
+- **User can add packages and delete them too**
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
