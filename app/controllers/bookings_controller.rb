@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user! unless Rails.env == 'test'
+  load_and_authorize_resource
 
   def index
     bookings = Booking.includes(:package).all
