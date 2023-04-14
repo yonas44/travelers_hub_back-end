@@ -1,88 +1,54 @@
-<a name="readme-top"></a>
-
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
--->
-
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
+  <h3><b>Traveller's Hub Back-End</b></h3>
 </div>
-
-<!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
+- [📖 About the Project](#[project])
+  - [Kanban board](#kanban-board)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
   - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
+  - [Setup](#setup)
+  - [Available Scripts](#available-scripts)
+- [👥 Authors](#author)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
+- [🙏 Acknowledgements](#acknowledgments)
 - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
+# 📖 travellers_hub_back-end <a name="about-project"></a>
 
-# 📖 [your_project_name] <a name="about-project"></a>
+**travellers_hub_back-end** is a travel booking app where the user can register new accounts, login and book a set of different trip packages, users can add packages and delete them too. It is built and connected by using two different repos, including back-end(Rails) and front-end(React/Redux).
 
-> Describe your project in 1 or 2 sentences.
+- You can find the front-end repository [here](https://github.com/yonas44/travelers_hub_front-end/tree/development).
 
-**[your_project__name]** is a...
+## Kanban board <a name="kanban-board"></a>
+
+- You can find the link to the Kanban board is [here](https://github.com/yonas44/travelers_hub_back-end/projects/1)
+- Here is the [link](https://drive.google.com/file/d/1X4q7g6on_dwaV7B-1HnypSo__SrYG1xR/view?usp=sharing) to the initial Kanban board.
+- A team of four collaborated in creating this web application.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li>HTML, CSS</li>
+    <li>JavaScript</li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li>Ruby on Rails</li>
   </ul>
 </details>
 
@@ -93,145 +59,133 @@ After you're finished please remove all the comments and instructions!
   </ul>
 </details>
 
-<!-- Features -->
-
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
+- **User can register new accounts and login**
+- **User can book a set of different trip packages**
+- **User can add packages and delete them too**
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com)
+- [Coming Soon]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
-To get a local copy up and running, follow these steps.
-
 ### Prerequisites
 
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- <a href="https://www.ruby-lang.org/en/news/2022/11/24/ruby-3-1-3-released/">Ruby</a>
+- <a href="https://rubyonrails.org/">Ruby on Rails</a>
+- <a href="https://www.postgresql.org/">PostgreSQL</a>
+- any code editor
 
 ### Setup
 
-Clone this repository to your desired folder:
+To setup the project follow the steps:
 
-<!--
-Example commands:
+1.  Clone this project using Git Bash:
 
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+    ```
+    git clone https://github.com/yonas44/travelers_hub_back-end.git
+    ```
+
+2.  Inside the project directory, install the project's dependencies
+
+    ```
+    bundle install
+    ```
+
+3.  Create the app's database
+
+    ```
+    rails db:create
+    ```
+
+4.  Setup the app's database
+    ```
+    rails db:setup
+    ```
+5.  Setup the credentials on your local project following:
+
+- Run:
+  ```
+         rake secret
+  ```
+- Open the credentials file from the command line.
+
 ```
---->
-
-### Install
-
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
+ EDITOR=nano rails credentials:edit
 ```
---->
+
+And paste in the following, with the key generated from running the rake secret above.
+
+```
+devise:
+  jwt_secret_key: <rake secret key>
+```
+
+ctrl+x, then y, then enter to close and save if you’re using the nano editor.
 
 ### Usage
 
-To run the project, execute the following command:
+- To use the API documentation for the back-end end points, use this path to see the documentation after starting the back-end server:
 
-<!--
-Example command:
+```
+http://localhost:3000/api-docs/index.html
+```
 
-```sh
+### Available Scripts
+
+In the project directory, you can run:
+
+- ```
   rails server
-```
---->
+  ```
 
-### Run tests
+  Runs the app local server
 
-To run tests, run the following command:
+- ```
+  bundle exec rspec
+  ```
+  Launches the test runner.
 
-<!--
-Example command:
+## 👥 Author <a name="authors"></a>
 
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
+👤 **Oti Ifeanyi**
 
-### Deployment
+- GitHub: [@ifeanyi305](https://github.com/ifeanyi305)
+- Twitter: [@ifeanyi305](https://twitter.com/ifeanyi2020)
+- LinkedIn: [oti joseph](https://www.linkedin.com/in/oti-joseph-ifeanyi/)
 
-You can deploy this project using:
+👤 **Selma Hamutenya**
 
-<!--
-Example:
+- GitHub: [@SelmaNdapanda](https://github.com/SelmaNdapanda)
+- Twitter: [@SellohBlaq](https://twitter.com/sellohBlaq)
+- LinkedIn: [selma-hamutenya](www.linkedin.com/in/selma-hamutenya)
 
-```sh
+👤 **Yonas Tesfu**
 
-```
- -->
+- GitHub: [@yonas44](https://github.com/yonas44)
+- LinkedIn: [Yonas Tesfu](https://linkedin.com/in/yonas-tesfu)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+👤 **Ben Salès**
 
-<!-- AUTHORS -->
+- GitHub: [@adebsa2401](https://github.com/adebsa2401)
+- Twitter: [@Adebsa3](https://twitter.com/Adebsa3)
+- LinkedIn: [adebsa](https://www.linkedin.com/in/adebsa)
 
-## 👥 Authors <a name="authors"></a>
+### 👤 Kidist Dinku
 
-> Mention all of the collaborators of this project.
-
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [Ney2](https://github.com/Ney2)
+- Twitter: [@GutaKidist](https://twitter.com/GutaKidist)
+- Linkedin: [Kidist Dinku](https://www.linkedin.com/in/kidist-guta/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
+- **Add payment methods**
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -239,50 +193,15 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- SUPPORT -->
-
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGEMENTS -->
+If you like this project give it a star!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
+- Microverse ❤️
+- [Murat Korkmaz on Behance](https://www.behance.net/muratk) the author of the [original design](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+This project is [MIT](./MIT.md) licensed.
