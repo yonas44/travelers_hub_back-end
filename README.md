@@ -5,6 +5,7 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#[project])
+  - [Kanban board](#kanban-board)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
@@ -22,9 +23,15 @@
 
 # 📖 travellers_hub_back-end <a name="about-project"></a>
 
-**travellers_hub_back-end** is a travelling app where the user can register new accounts, login and book a set of different trip packages, users can add packages and delete them too. It is built and connected by using two different repos, including back-end(Rails) and front-end(React/Redux).
+**travellers_hub_back-end** is a travel booking app where the user can register new accounts, login and book a set of different trip packages, users can add packages and delete them too. It is built and connected by using two different repos, including back-end(Rails) and front-end(React/Redux).
 
-Find the front-end repository [here](https://github.com/yonas44/travelers_hub_front-end/tree/development)
+- You can find the front-end repository [here](https://github.com/yonas44/travelers_hub_front-end/tree/development).
+
+## Kanban board <a name="kanban-board"></a>
+
+- You can find the link to the Kanban board is [here](https://github.com/yonas44/travelers_hub_back-end/projects/1)
+- Here is the [link](https://drive.google.com/file/d/1X4q7g6on_dwaV7B-1HnypSo__SrYG1xR/view?usp=sharing) to the initial Kanban board.
+- A team of four collaborated in creating this web application.
 
 ## 🛠 Built With <a name="built-with"></a>
 
