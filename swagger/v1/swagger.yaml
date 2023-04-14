@@ -1,0 +1,386 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/bookings":
+    get:
+      summary: Retrieves all bookings
+      tags:
+      - Bookings
+      responses:
+        '200':
+          description: bookings found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    package:
+                      type: object
+                      items:
+                        type: string
+                    start_time:
+                      type: string
+                      format: datetime
+                    end_time:
+                      type: string
+                      format: datetime
+                  required:
+                  - id
+                  - user_id
+                  - start_time
+                  - end_time
+    post:
+      summary: Creates a booking
+      tags:
+      - Bookings
+      parameters: []
+      responses:
+        '200':
+          description: created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: booking created
+                required:
+                - message
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                package_id:
+                  type: integer
+                start_time:
+                  type: date
+                end_time:
+                  type: date
+              required:
+              - package_id
+              - start_time
+              - end_time
+  "/bookings/:id":
+    delete:
+      summary: deletes a booking
+      tags:
+      - Bookings
+      responses:
+        '200':
+          description: created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required:
+                - message
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+  "/packages":
+    get:
+      summary: Retrieves all packages
+      tags:
+      - Packages
+      responses:
+        '200':
+          description: packages found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    destination:
+                      type: string
+                    photo:
+                      type: array
+                      items:
+                        type: string
+                    flight:
+                      type: boolean
+                    bus:
+                      type: boolean
+                    price:
+                      type: integer
+                    promotion:
+                      type: integer
+                    accomodation:
+                      type: string
+                  required:
+                  - id
+                  - user_id
+                  - title
+                  - description
+                  - destination
+                  - photo
+                  - flight
+                  - bus
+                  - accomodation
+                  - price
+                  - promotion
+    post:
+      summary: Creates a package
+      tags:
+      - Packages
+      parameters: []
+      responses:
+        '200':
+          description: created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Package created successfully
+                required:
+                - message
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Unable to create package
+                required:
+                - error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                destination:
+                  type: string
+                photo:
+                  type: array
+                  items:
+                    type: string
+                flight:
+                  type: boolean
+                bus:
+                  type: boolean
+                price:
+                  type: integer
+                promotion:
+                  type: integer
+                accomodation:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - title
+              - description
+              - destination
+              - photo
+              - flight
+              - bus
+              - price
+              - promotion
+              - accomodation
+              - user_id
+  "/packages/:id":
+    delete:
+      summary: deletes a package
+      tags:
+      - Packages
+      responses:
+        '200':
+          description: created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Package removed successfully
+                required:
+                - message
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Sorry, coulnd't remove package
+                required:
+                - error
+  "/users":
+    post:
+      summary: registers a new user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: created a user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Signed up sucessfully.
+                required:
+                - message
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Register failed!
+                required:
+                - error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - password
+  "/users/sign_in":
+    post:
+      summary: creates a new user session
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: session created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: You are logged in successfully
+                required:
+                - message
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Log in failed
+                required:
+                - error
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - password
+  "/users/sign_out":
+    delete:
+      summary: destroys a user session
+      tags:
+      - Users
+      responses:
+        '200':
+          description: session destroyed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: You are logged out successfully
+                required:
+                - message
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Logout failed
+                required:
+                - error
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
