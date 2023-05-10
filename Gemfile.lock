@@ -253,6 +253,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sprockets (4.2.0)
+      concurrent-ruby (~> 1.0)
+      rack (>= 2.2.4, < 4)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -298,6 +301,7 @@ DEPENDENCIES
   rswag
   rubocop (>= 1.0, < 2.0)
   selenium-webdriver
+  sprockets
   tzinfo-data
   webdrivers
 

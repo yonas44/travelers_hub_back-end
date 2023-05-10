@@ -1,12 +1,11 @@
 require_relative "boot"
 
-require 'sprockets/railtie'
-
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+# Bundler.require(:default, :assets, Rails.env)
 
 module TravelersHubBackEnd
   class Application < Rails::Application
