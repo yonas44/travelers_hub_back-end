@@ -1,0 +1,18 @@
+databases:
+  - name: My_storage_space
+    databaseName: my_storage_space_rvfv
+    user: my_storage_space_rvfv_user
+
+services:
+  - type: web
+    name: Travelers_hub
+    env: ruby
+    buildCommand: './bin/render-build.sh'
+    startCommand: 'bundle exec puma -C config/puma.rb'
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: my_storage_space_rvfv
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
